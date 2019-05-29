@@ -44,3 +44,6 @@ Steps for operation:
 		The red circle should turn green, and the machine should move a little.
 5:	On the top left of the app, click "Click to Upload", and select "cherrypick_96to96.py"
 6:	Click run, and click "OK" on the prompt that shows up.
+
+Make sure that all plates and tipracks are firmly seated in the bottom left corner of their slots, and that the source
+	plate is firmly seated in its holder.
