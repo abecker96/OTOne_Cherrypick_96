@@ -1,10 +1,12 @@
 from opentrons import robot, containers, instruments
+import os
+
 
 #This program is for cherrypicking from any well in any plate to any well in any plate
 #This is functionally very similar to cherrypick_multiplate_96to96 in all of its iterations
-#except the end user should only ever have to interface with the first few lines, and 
+#except the end user should never have to interface with the code
 #plates aren't limited to being source or destination plates, they can be both.
-#Last edited 03/21/2019
+
 
 
 #IMPORTANT NOTE
@@ -13,10 +15,23 @@ from opentrons import robot, containers, instruments
 
 #Slot positions for tipracks and trashes
 tiprack_slots = ['A3']
-trash_slots = ['D1', 'D2', 'D3']
+trash_slots = ['D1']
 
-#Copy and paste csv here
+#save current directory
+originDir = os.getcwd()
+#move to the file location
+os.chdir("C:\\Users\\abecker2\\Desktop")
+#open the file
+file=open("CherrypickMap.csv", "r")
+#check that it all worked correctly
+if file.mode == 'r':
+	#if so, load into a variable
+	cherrypickingmap_csv = file.read()
+#move back to the original directory
+os.chdir(originDir)
 
+
+#Manual override of cherrypicking map, just in case
 #cherrypickingmap_csv = """
 # 0,A1,0,A1,53
 # 0,H1,0,B1,53
@@ -31,36 +46,10 @@ trash_slots = ['D1', 'D2', 'D3']
 # 2,A12,1,A12,53
 # 2,H12,1,H12,53
 # """
-cherrypickingmap_csv = """
-0,H6,3,A1,50
-0,B4,3,A2,50
-0,C8,3,A3,50
-0,F1,3,A4,50
-0,B2,3,A5,50
-0,F11,3,A6,50
-0,H2,3,A7,50
-0,C9,3,A8,50
-0,H4,3,B1,50
-0,E10,3,B2,50
-0,A4,3,B3,50
-0,G2,3,B4,50
-0,D5,3,B5,50
-0,B11,3,B6,50
-0,D10,3,B7,50
-0,F4,3,B8,50
-0,G8,3,C1,50
-0,D8,3,C2,50
-0,H3,3,C3,50
-0,B10,3,C4,50
-0,E12,3,C5,50
-0,D9,3,C6,50
-0,G4,3,C7,50
-0,C5,4,C8,50
-"""
 
 robot.clear_commands()
 robot.comment("")
-robot.comment("Begin cherrypick_96to96_v0.9.py")
+robot.comment("Begin cherrypick_96.py")
 
 
 
