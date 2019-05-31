@@ -33,7 +33,11 @@ IMPORTANT NOTE:
 	Plates 12, 13, and 14 ARE NOT ACCESSIBLE.
 	Do not try to use them as either source or destination plates.
 
-	
+The OpenTrons app is account dependent. This means that so are calibrations. There are two calibrations files available on git
+	to get around this with minimal effort. The file named calibrationsNEW.json works with the newer pipette tips, while calibrations.json
+	works with the older ones. Download the correct file and replace the one in C:\Users\ (YourAccountName) \AppData\Roaming\OT One App 2\otone_data\calibrations
+	to get started.
+
 
 Steps for operation:
 
