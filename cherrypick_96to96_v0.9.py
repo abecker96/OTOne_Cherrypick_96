@@ -17,16 +17,20 @@ import os
 tiprack_slots = ['A3']
 trash_slots = ['D1']
 
+
+
 #save current directory
 originDir = os.getcwd()
-#move to the file location
-os.chdir("C:\\Users\\abecker2\\Desktop")
-#open the file
-file=open("CherrypickMap.csv", "r")
+#go to the user's desktop
+desktopDir = originDir.replace("AppData\\Local\\ot\\app-2.5.2", "Desktop")
+#move to desktop
+os.chdir(desktopDir)
+#open the csv
+map=open("CherrypickMap.csv", "r")
 #check that it all worked correctly
-if file.mode == 'r':
+if map.mode == 'r':
 	#if so, load into a variable
-	cherrypickingmap_csv = file.read()
+	cherrypickingmap_csv = map.read()
 #move back to the original directory
 os.chdir(originDir)
 
